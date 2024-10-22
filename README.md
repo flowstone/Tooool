@@ -17,3 +17,10 @@ pyinstaller -F -w 脚本.py
 支持批量修改文件名，前缀、后缀、替换操作
 
 ![BatchFileRenamer](img/batch_file_renamer.png)
+
+
+#### BatchCreateFolderSlice
+
+指定文件夹下，根据分割符匹配文件名，前部分创建文件夹并把符合的文件都移动到对应的文件夹下
+
+![BatchCreateFolderSlice](img/batch_create_folder_slice.png)
