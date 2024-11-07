@@ -6,6 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -39,42 +40,58 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label text="文件夹前缀" GridPane.rowIndex="1">
+            <Label text="文件前缀" GridPane.rowIndex="1">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label text="文件夹后缀" GridPane.rowIndex="2">
+            <Label text="文件后缀" GridPane.rowIndex="2">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label text="查找字符" GridPane.rowIndex="3">
+            <Label text="查找文字" GridPane.rowIndex="3">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label text="替换字符" GridPane.rowIndex="4">
+            <Label text="替换文字" GridPane.rowIndex="4">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField GridPane.columnIndex="1" />
-            <Button mnemonicParsing="false" text="浏览" GridPane.columnIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="filePrefix" promptText="添加文字到文件名的开头" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="fileSuffix" promptText="修改文件的后缀名" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="fileFind" promptText="文件名中要查找的文字" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="fileReplace" promptText="文件名中要替换的文字" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <children>
+                  <TextField fx:id="folderPath" editable="false" prefHeight="26.0" prefWidth="334.0" promptText="请选择要修改的文件夹">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </TextField>
+                  <Button mnemonicParsing="false" onAction="#openFolderChooser" prefHeight="26.0" prefWidth="55.0" text="..." />
+               </children>
+            </HBox>
          </children>
          <VBox.margin>
             <Insets bottom="20" left="20.0" right="20.0" top="50.0" />
          </VBox.margin>
       </GridPane>
-      <Button mnemonicParsing="false" text="开始修改">
+      <Button mnemonicParsing="false" onAction="#onStart" text="开始修改">
          <VBox.margin>
             <Insets bottom="20.0" />
 
          </VBox.margin>
       </Button>
+      <Label text="为了安全，不支持递归操作" textFill="#c62626">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+          <VBox.margin>
+              <Insets bottom="20.0" />
+          </VBox.margin>
+      </Label>
    </children>
 </VBox>

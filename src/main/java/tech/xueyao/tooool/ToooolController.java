@@ -17,10 +17,11 @@ public class ToooolController {
         FXMLLoader fxmlLoader = new FXMLLoader(ToooolApplication.class.getResource("batch-update-filename.fxml"));
         Scene scene = null;
         try {
-            scene = new Scene(fxmlLoader.load(), 500, 300);
+            scene = new Scene(fxmlLoader.load(), 600, 400);
             Stage stage = new Stage();
             stage.setTitle("超级小工具");
             stage.setScene(scene);
+            stage.setResizable(false);
             stage.show();
 
         } catch (IOException e) {
