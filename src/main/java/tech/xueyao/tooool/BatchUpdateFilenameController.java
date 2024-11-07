@@ -5,11 +5,17 @@ import cn.hutool.core.io.file.FileNameUtil;
 import cn.hutool.core.util.StrUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
+import org.controlsfx.control.NotificationPane;
+import org.controlsfx.control.Notifications;
 
+import javax.swing.text.Position;
 import java.io.File;
 
 public class BatchUpdateFilenameController {
@@ -48,6 +54,12 @@ public class BatchUpdateFilenameController {
         String folderPathStr = folderPath.getText();
         if (StrUtil.isBlank(folderPathStr)) {
             System.out.println("请选择文件夹!!!");
+            // 创建并显示通知提示框
+            Notifications.create()
+                    .title("提示")
+                    .text("请选择文件夹")
+                    .position(Pos.TOP_CENTER)
+                    .showWarning();
             return;
         }
         // 遍历文件夹下的文件
@@ -89,8 +101,12 @@ public class BatchUpdateFilenameController {
 
             }
         }
-        // 判断是否是文件
-
+        // 创建并显示通知提示框
+        Notifications.create()
+                .title("提示")
+                .text("操作成功")
+                .position(Pos.CENTER)
+                .showInformation();
 
     }
 }
