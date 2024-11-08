@@ -8,8 +8,7 @@ module tech.xueyao.tooool {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires cn.hutool;
-    requires java.sql;
-    requires java.desktop;
+
 
     opens tech.xueyao.tooool to javafx.fxml;
     exports tech.xueyao.tooool;

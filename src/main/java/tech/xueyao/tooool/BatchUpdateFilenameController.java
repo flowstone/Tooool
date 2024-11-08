@@ -15,7 +15,6 @@ import javafx.stage.Stage;
 import org.controlsfx.control.NotificationPane;
 import org.controlsfx.control.Notifications;
 
-import javax.swing.text.Position;
 import java.io.File;
 
 public class BatchUpdateFilenameController {
