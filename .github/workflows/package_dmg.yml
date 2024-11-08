@@ -40,8 +40,8 @@ jobs:
             --type dmg \
             --dest target/ \
             --java-options "--module-path $JAVAFX_SDK_PATH$JAVAFX_SDK_PATH \
-            --add-modules javafx.controls,javafx.fxml"
-             --icon src/main/resources/tech/xueyao/tooool/img/app-mac.icns
+            --add-modules javafx.controls,javafx.fxml" \
+            --icon src/main/resources/tech/xueyao/tooool/img/app-mac.icns
       - name: Create Release
         uses: actions/create-release@v1
         env:
