@@ -1,0 +1,5 @@
+.bg-main {
+    -fx-background-image: url("img/background-main.png");
+    -fx-background-size: cover;
+    -fx-background-position: center;
+}
