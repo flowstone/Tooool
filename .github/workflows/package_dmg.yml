@@ -28,8 +28,8 @@ jobs:
 
       - name: Extract JavaFX SDK
         run: |
-          tar -zxvf /tmp/openjfx-23.0.1_osx-x64_bin-sdk.zip -C /opt/
-          export JAVAFX_SDK_PATH="/opt/javafx-sdk-23.0.1/lib"
+          tar -zxvf /tmp/openjfx-23.0.1_osx-x64_bin-sdk.zip -C ${{ github.repository }}/
+          export JAVAFX_SDK_PATH="${{ github.repository }}/javafx-sdk-23.0.1/lib"
       - name: Package with JPackage
         run: |
           jpackage \
