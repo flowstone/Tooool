@@ -3,6 +3,8 @@ package tech.xueyao.tooool;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.io.file.FileNameUtil;
 import cn.hutool.core.util.StrUtil;
+import cn.hutool.log.Log;
+import cn.hutool.log.LogFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
@@ -29,12 +31,16 @@ public class BatchUpdateFilenameController {
     @FXML
     private TextField fileReplace;
 
+    private final Log log = LogFactory.get();
+
     /**
      * 文件夹浏览操作
      * @param event
      */
     @FXML
     protected void openFolderChooser(ActionEvent event) {
+        log.info("---- [Start]文件夹选择器 ----");
+
         DirectoryChooser directoryChooser = new DirectoryChooser();
         // 设置对话框标题
         directoryChooser.setTitle("选择文件夹");
@@ -42,17 +48,21 @@ public class BatchUpdateFilenameController {
         Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
         File selectedDirectory = directoryChooser.showDialog(stage);
         if (selectedDirectory!= null) {
-            System.out.println("选择的文件夹是: " + selectedDirectory.getAbsolutePath());
+            log.info("选择的文件夹是: {}", selectedDirectory.getAbsolutePath());
             folderPath.setText(selectedDirectory.getAbsolutePath());
         }
+
+        log.info("---- [End]文件夹选择器 ----");
     }
 
 
     @FXML
     protected void onStart() {
+        log.info("---- [Start]批量修改文件名 ----");
+
         String folderPathStr = folderPath.getText();
         if (StrUtil.isBlank(folderPathStr)) {
-            System.out.println("请选择文件夹!!!");
+            log.warn("请选择文件夹!!!");
             // 创建并显示通知提示框
             Notifications.create()
                     .title("提示")
@@ -71,7 +81,7 @@ public class BatchUpdateFilenameController {
                 String prefix = FileUtil.getPrefix(file);
                 // 文件名后缀 mp3
                 String suffix = FileUtil.getSuffix(file);
-                System.out.println("全名："+name+",前缀："+prefix+",后缀："+suffix);
+                log.info("文件全名：{}, 前缀：{}, 后缀：{}",name, prefix, suffix);
                 // 添加前缀名
                 String filePrefixText = filePrefix.getText();
                 if (StrUtil.isNotBlank(filePrefixText)) {
@@ -93,7 +103,7 @@ public class BatchUpdateFilenameController {
 
                 String fileNewName = prefix + "."+ suffix;
                 if (!StrUtil.equals(name, fileNewName)) {
-                    System.out.println("开始批量修改文件名");
+                    log.info("开始批量修改文件名");
                     FileUtil.rename(file, fileNewName, true);
                 }
 
@@ -107,5 +117,6 @@ public class BatchUpdateFilenameController {
                 .position(Pos.CENTER)
                 .showInformation();
 
+        log.info("---- [End]批量修改文件名 ----");
     }
 }

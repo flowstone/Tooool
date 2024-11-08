@@ -1,5 +1,7 @@
 package tech.xueyao.tooool;
 
+import cn.hutool.log.Log;
+import cn.hutool.log.LogFactory;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,8 +14,12 @@ import java.io.IOException;
 public class ToooolController {
 
 
+    private final Log log = LogFactory.get();
+
     @FXML
     protected void onBatchUpdateFilename() {
+        log.info("---- 你点击了[批量修改文件名] ----");
+
         FXMLLoader fxmlLoader = new FXMLLoader(ToooolApplication.class.getResource("batch-update-filename.fxml"));
         Scene scene = null;
         try {
@@ -32,6 +38,8 @@ public class ToooolController {
 
     @FXML
     protected void onBatchCreateFolder() {
+        log.info("---- 你点击了[批量创建文件夹并移动文件] ----");
+
         FXMLLoader fxmlLoader = new FXMLLoader(ToooolApplication.class.getResource("batch-create-folder.fxml"));
         Scene scene = null;
         try {

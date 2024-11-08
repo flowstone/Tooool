@@ -57,7 +57,7 @@
                         <Insets />
                      </opaqueInsets>
                   </TextField>
-                   <Button mnemonicParsing="false" onAction="#openFolderChooser1" prefHeight="26.0" prefWidth="55.0" text="...">
+                   <Button mnemonicParsing="false" onAction="#openFolderChooser" prefHeight="26.0" prefWidth="55.0" text="...">
                    </Button>
                </children>
             </HBox>
@@ -66,7 +66,7 @@
             <Insets bottom="20" left="20.0" right="20.0" top="50.0" />
          </VBox.margin>
       </GridPane>
-      <Button mnemonicParsing="false" onAction="#onStart1" text="开始修改">
+      <Button mnemonicParsing="false" onAction="#onStart" text="开始修改">
          <VBox.margin>
             <Insets bottom="20.0" />
          </VBox.margin>
