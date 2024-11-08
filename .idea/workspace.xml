@@ -8,14 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5fbd4369-321a-4c0f-8a84-fc2cbb4e06fb" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/xueyao/tooool/BatchCreateFolderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/xueyao/tooool/BatchCreateFolderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/xueyao/tooool/BatchUpdateFilenameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/xueyao/tooool/BatchUpdateFilenameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/xueyao/tooool/ToooolApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/xueyao/tooool/ToooolApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tech/xueyao/tooool/ToooolController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/xueyao/tooool/ToooolController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tech/xueyao/tooool/batch-create-folder.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tech/xueyao/tooool/batch-create-folder.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +31,11 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+        <option name="customMavenHome" value="$USER_HOME$/Developer/Java/maven-3.9.9" />
+        <option name="localRepository" value="$USER_HOME$/Developer/Java/maven-3.9.9/repository" />
+        <option name="mavenHomeTypeForPersistence" value="CUSTOM" />
+        <option name="useMavenConfig" value="false" />
+        <option name="userSettingsFile" value="$USER_HOME$/Developer/Java/maven-3.9.9/conf/settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -51,6 +50,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JAR 应用程序.Tooool-1.0-SNAPSHOT-jar-with-dependencies.jar.executor": "Run",
     "JAR 应用程序.Tooool-1.0-SNAPSHOT.jar.executor": "Run",
     "Maven.Tooool [clean].executor": "Run",
     "Maven.Tooool [compile].executor": "Run",
@@ -67,6 +67,7 @@
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/simonxue/Code/ueYao-Workspace/Tooool/src/main/resources/tech/xueyao/tooool",
     "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "MavenSettings",
     "应用程序.ToooolApplication.executor": "Run"
   }
 }]]></component>
@@ -82,7 +83,7 @@
       <recent name="tech.xueyao.tooool" />
     </key>
   </component>
-  <component name="RunManager" selected="应用程序.ToooolApplication">
+  <component name="RunManager" selected="JAR 应用程序.Tooool-1.0-SNAPSHOT-jar-with-dependencies.jar">
     <configuration name="ToooolApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="tech.xueyao.tooool.ToooolApplication" />
       <module name="Tooool" />
@@ -96,14 +97,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Tooool-1.0-SNAPSHOT-jar-with-dependencies.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/Tooool-1.0-SNAPSHOT-jar-with-dependencies.jar" />
+      <method v="2" />
+    </configuration>
     <configuration name="Tooool-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/target/Tooool-1.0-SNAPSHOT.jar" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="应用程序.ToooolApplication" />
+        <item itemvalue="JAR 应用程序.Tooool-1.0-SNAPSHOT-jar-with-dependencies.jar" />
         <item itemvalue="JAR 应用程序.Tooool-1.0-SNAPSHOT.jar" />
+        <item itemvalue="应用程序.ToooolApplication" />
       </list>
     </recent_temporary>
   </component>
