@@ -18,5 +18,10 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
 
-    <Button text="批量修改文件名" onAction="#onBatchUpdateFilename"/>
+    <Button text="批量修改文件名" onAction="#onBatchUpdateFilename">
+        <styleClass>
+            <String fx:value="btn"/>
+            <String fx:value="btn-default"/>
+        </styleClass>
+    </Button>
 </VBox>

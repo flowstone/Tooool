@@ -102,13 +102,16 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>tech.xueyao.tooool/tech.xueyao.tooool.HelloApplication</mainClass>
-                            <launcher>app</launcher>
-                            <jlinkZipName>app</jlinkZipName>
-                            <jlinkImageName>app</jlinkImageName>
+                            <mainClass>tech.xueyao.tooool.ToooolApplication</mainClass>
+                            <launcher>tooool</launcher>
+                            <jlinkZipName>tooool</jlinkZipName>
+                            <jlinkImageName>tooool</jlinkImageName>
                             <noManPages>true</noManPages>
                             <stripDebug>true</stripDebug>
                             <noHeaderFiles>true</noHeaderFiles>
+                            <options>
+                                <option>--icon=src/main/resources/app.png</option>
+                            </options>
                         </configuration>
                     </execution>
                 </executions>

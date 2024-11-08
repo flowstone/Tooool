@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.kordamp.bootstrapfx.BootstrapFX;
 
 import java.io.IOException;
 
@@ -15,6 +16,7 @@ public class ToooolApplication extends Application {
         stage.setTitle("超级小工具");
         stage.setScene(scene);
         stage.setResizable(false);
+        stage.getScene().getStylesheets().add(BootstrapFX.bootstrapFXStylesheet());
         stage.show();
     }
 

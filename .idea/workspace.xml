@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5fbd4369-321a-4c0f-8a84-fc2cbb4e06fb" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tech/xueyao/tooool/img/background-main.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tech/xueyao/tooool/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tech/xueyao/tooool/img/app.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tech/xueyao/tooool/img/bg-other.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tech/xueyao/tooool/ToooolApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/xueyao/tooool/ToooolApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tech/xueyao/tooool/ToooolController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tech/xueyao/tooool/ToooolController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/tech/xueyao/tooool/batch-update-filename.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tech/xueyao/tooool/batch-update-filename.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/tech/xueyao/tooool/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tech/xueyao/tooool/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/tech/xueyao/tooool/tooool.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tech/xueyao/tooool/tooool.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,6 +49,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Maven.Tooool [package].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",

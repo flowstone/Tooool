@@ -3,3 +3,9 @@
     -fx-background-size: cover;
     -fx-background-position: center;
 }
+
+.bg-other {
+    -fx-background-image: url("img/bg-other.png");
+    -fx-background-size: cover;
+    -fx-background-position: center;
+}
