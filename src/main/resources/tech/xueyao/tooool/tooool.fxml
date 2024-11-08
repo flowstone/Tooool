@@ -24,4 +24,11 @@
             <String fx:value="btn-default"/>
         </styleClass>
     </Button>
+
+    <Button text="批量创建文件夹" onAction="#onBatchCreateFolder">
+        <styleClass>
+            <String fx:value="btn"/>
+            <String fx:value="btn-default"/>
+        </styleClass>
+    </Button>
 </VBox>
