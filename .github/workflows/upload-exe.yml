@@ -2,8 +2,8 @@ name: 打包EXE并发布
 
 on:
   push:
-  #  tags:
-  #    - "*"   
+    tags:
+      - "*"   
 
 jobs:
   dmg_build:
