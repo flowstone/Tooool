@@ -46,7 +46,11 @@ jobs:
           dir
           $env:JAVAFX_SDK_PATH = "$((Get-Location).Path)\javafx-sdk\lib"
           $env:JAVAFX_ADD_MODULES = "javafx.controls,javafx.fxml,javafx.graphics"
-          
+          echo ${{env:JAVAFX_SDK_PATH}}
+          echo $env:JAVAFX_SDK_PATH
+          echo ${{env:JAVAFX_ADD_MODULES}}
+          echo $env:JAVAFX_ADD_MODULES
+
       - name: Package with EXE
         run: |
           jpackage --input target   --name "Tooool"  --main-jar Tooool-1.0-SNAPSHOT-jar-with-dependencies.jar   --main-class tech.xueyao.tooool.ToooolApplication --type exe  --dest target  --java-options "--module-path $env:JAVAFX_MODULE_PATH --add-modules $env:JAVAFX_ADD_MODULES " --icon src/main/resources/tech/xueyao/tooool/img/app-win.ico     --app-version ${{ inputs.app_version }}
