@@ -54,7 +54,7 @@ jobs:
           draft: false
           prerelease: false
           files: |
-            *.dmg
+              /home/user/target/超级小工具-1.0.dmg
      # - name: Upload DMG to Release
      #   uses: alexellis/upload-assets@0.4.1
       #  env:
