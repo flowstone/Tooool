@@ -59,6 +59,7 @@
     "Maven.Tooool [install].executor": "Run",
     "Maven.Tooool [org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile].executor": "Run",
     "Maven.Tooool [org.apache.maven.plugins:maven-jar-plugin:3.2.0:jar].executor": "Run",
+    "Maven.Tooool [org.apache.maven.plugins:maven-shade-plugin:3.4.1:shade].executor": "Run",
     "Maven.Tooool [org.openjfx:javafx-maven-plugin:0.0.8:jlink].executor": "Run",
     "Maven.Tooool [org.openjfx:javafx-maven-plugin:0.0.8:run].executor": "Run",
     "Maven.Tooool [package].executor": "Run",
