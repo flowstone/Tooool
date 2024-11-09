@@ -26,25 +26,32 @@ jobs:
         run: |
           Invoke-WebRequest -Uri https://download2.gluonhq.com/openjfx/23.0.1/openjfx-23.0.1_osx-x64_bin-sdk.zip -OutFile javafx-sdk.zip
           Expand-Archive -Path javafx-sdk.zip -DestinationPath javafx-sdk
+          cd
           dir
           
-
+      - name: Install Unzip Tool (if not already installed)
+        run: |
+          choco install unzip -y
+          refreshenv
+          
       - name: Extract JavaFX SDK
         run: |
+          cd ${{ github.workspace }}
+          unzip  javafx-sdk.zip -d javafx-sdk
           $env:JAVAFX_SDK_PATH = "$((Get-Location).Path)\javafx-sdk\lib"
           $env:JAVAFX_ADD_MODULES = "javafx.controls,javafx.fxml,javafx.graphics"
           
       - name: Package with EXE
         run: |
           jpackage \
-            --input target/ \
+            --input target \
             --name "Tooool" \
             --main-jar Tooool-1.0-SNAPSHOT-jar-with-dependencies.jar \
             --main-class tech.xueyao.tooool.ToooolApplication \
             --type exe \
-            --dest target/ \
+            --dest target \
             --java-options "--module-path $env:JAVAFX_MODULE_PATH \
-            --add-modules $env:JAVAFX_ADD_MODULES" \
+            --add-modules "javafx.controls,javafx.fxml,javafx.graphics"" \
             --icon src/main/resources/tech/xueyao/tooool/img/app-win.png\
           dir
       #- name: Upload DMG to Release
