@@ -15,7 +15,7 @@ on:
 
 jobs:
   build_and_package:
-    runs-on: macos-latest-large # 因为要生成.dmg格式，需要在MacOS环境下运行
+    runs-on: macos-13 # macos13支持Intel平台，14之后默认是ARM平台，Intel平台要收费
 
     steps:
       - name: Checkout Repository
