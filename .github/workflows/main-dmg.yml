@@ -48,13 +48,13 @@ jobs:
         with:
           #tag_name: ${{ github.ref }}
           #name: Release ${{ github.ref }}
-          tag_name: v0.0.6
+          tag_name: v0.0.7
           name: Release ${{ github.ref }}
           body: TODO New Release.
           draft: false
           prerelease: false
           files: |
-           target/超级小工具-1.0.dmg
+            *.dmg
      # - name: Upload DMG to Release
      #   uses: alexellis/upload-assets@0.4.1
       #  env:
