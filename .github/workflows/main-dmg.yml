@@ -2,9 +2,7 @@ name: Build and Package Java Application
 
 on:
   push:
-   tags:
-      - "*" # 可以根据你的实际需求修改触发的分支，这里以main分支为例
-
+   
 
 jobs:
   build_and_package:
