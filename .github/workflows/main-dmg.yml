@@ -30,7 +30,7 @@ jobs:
         run: |
           tar -zxvf /tmp/openjfx-23.0.1_osx-x64_bin-sdk.zip -C /tmp/
           export JAVAFX_SDK_PATH="/tmp/javafx-sdk-23.0.1/lib"
-      - name: Package with JPackage
+      - name: Package with EXE
         run: |
           jpackage \
             --input target/ \
@@ -38,6 +38,19 @@ jobs:
             --main-jar Tooool-1.0-SNAPSHOT-jar-with-dependencies.jar \
             --main-class tech.xueyao.tooool.ToooolApplication \
             --type dmg \
+            --dest target/ \
+            --java-options "--module-path $JAVAFX_SDK_PATH$JAVAFX_SDK_PATH \
+            --add-modules javafx.controls,javafx.fxml" \
+            --icon src/main/resources/tech/xueyao/tooool/img/app-mac.icns
+            
+      - name: Package with DMG
+        run: |
+          jpackage \
+            --input target/ \
+            --name "Tooool" \
+            --main-jar Tooool-1.0-SNAPSHOT-jar-with-dependencies.jar \
+            --main-class tech.xueyao.tooool.ToooolApplication \
+            --type exe \
             --dest target/ \
             --java-options "--module-path $JAVAFX_SDK_PATH$JAVAFX_SDK_PATH \
             --add-modules javafx.controls,javafx.fxml" \
