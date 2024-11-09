@@ -1,4 +1,4 @@
-name: 打包成IMG并发版
+name: 打包成DMG(ARM芯片)发布
 
 on:
   workflow_dispatch:
