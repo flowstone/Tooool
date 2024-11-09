@@ -1,9 +1,17 @@
 name: 打包EXE并发布
 
 on:
-  push:
-    tags:
-      - "*"   
+  workflow_dispatch:
+    inputs:
+      #java_version:
+      #  description: "The version of Java to use for jpackage"
+      #  required: true
+      app_version:
+        description: "应用版本，如1.0.1"
+        required: true
+      release_notes:
+        description: "Release描述"
+        required: false
 
 jobs:
   dmg_build:
@@ -41,7 +49,8 @@ jobs:
           
       - name: Package with EXE
         run: |
-          jpackage --input target   --name "Tooool"  --main-jar Tooool-1.0-SNAPSHOT-jar-with-dependencies.jar   --main-class tech.xueyao.tooool.ToooolApplication --type exe  --dest target  --java-options "--module-path $env:JAVAFX_MODULE_PATH --add-modules $env:JAVAFX_ADD_MODULES " --icon src/main/resources/tech/xueyao/tooool/img/app-win.ico
+          jpackage --input target   --name "Tooool"  --main-jar Tooool-1.0-SNAPSHOT-jar-with-dependencies.jar   --main-class tech.xueyao.tooool.ToooolApplication --type exe  --dest target  --java-options "--module-path $env:JAVAFX_MODULE_PATH --add-modules $env:JAVAFX_ADD_MODULES " --icon src/main/resources/tech/xueyao/tooool/img/app-win.ico     --app-version ${{ inputs.app_version }}
+
           cd target   
           dir
       - name: Upload EXE to Release
@@ -50,11 +59,10 @@ jobs:
         with:
           #tag_name: ${{ github.ref }}
           #name: Release ${{ github.ref }}
-          tag_name: v0.1.0
-          name: Release v0.1.0
-          body: |
-            这是一个新的发布
+          tag_name: v${{ inputs.app_version }}
+          name: Release v${{ inputs.app_version }}
+          body: ${{ inputs.release_notes }}
           draft: false
           prerelease: false
           files: |
-              /a/Tooool/Tooool/target/Tooool-1.0.exe
+              /a/Tooool/Tooool/target/Tooool-${{ inputs.app_version }}.exe
