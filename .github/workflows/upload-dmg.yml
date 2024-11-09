@@ -2,8 +2,8 @@ name: 打包成IMG并发版
 
 on:
   push:
-    #tags:
-    #  - "*"   
+    tags:
+      - "*"   
 
 jobs:
   build_and_package:
