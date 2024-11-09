@@ -39,7 +39,7 @@ jobs:
             --main-class tech.xueyao.tooool.ToooolApplication \
             --type dmg \
             --dest target/ \
-            --java-options "--module-path $JAVAFX_SDK_PATH$JAVAFX_SDK_PATH \
+            --java-options "--module-path $JAVAFX_SDK_PATH \
             --add-modules javafx.controls,javafx.fxml" \
             --icon src/main/resources/tech/xueyao/tooool/img/app-mac.icns
            cd $(pwd)/target/
