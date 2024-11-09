@@ -1,0 +1,80 @@
+name: 打包DMG并发布
+
+on:
+  push:
+    #tags:
+    #  - "*"   
+
+jobs:
+  dmg_build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21.0.1'
+          distribution: 'temurin'
+
+      - name: Build with Maven
+        run: mvn clean package
+
+      - name: Download JavaFX SDK
+        run: |
+          wget https://download2.gluonhq.com/openjfx/23.0.1/openjfx-23.0.1_osx-x64_bin-sdk.zip -P /tmp/
+          pwd
+          ls
+      - name: Extract JavaFX SDK
+        run: |
+          tar -zxvf /tmp/openjfx-23.0.1_osx-x64_bin-sdk.zip -C /tmp/
+          export JAVAFX_SDK_PATH="/tmp/javafx-sdk-23.0.1/lib"
+          ls
+      - name: Package with DMG
+        run: |
+          jpackage \
+            --input target/ \
+            --name "Tooool" \
+            --main-jar Tooool-1.0-SNAPSHOT-jar-with-dependencies.jar \
+            --main-class tech.xueyao.tooool.ToooolApplication \
+            --type dmg \
+            --dest target/ \
+            --java-options "--module-path $JAVAFX_SDK_PATH$JAVAFX_SDK_PATH \
+            --add-modules javafx.controls,javafx.fxml" \
+            --icon src/main/resources/tech/xueyao/tooool/img/app-mac.icns
+      - name: Package with EXE
+        run: |
+          jpackage \
+            --input target/ \
+            --name "Tooool" \
+            --main-jar Tooool-1.0-SNAPSHOT-jar-with-dependencies.jar \
+            --main-class tech.xueyao.tooool.ToooolApplication \
+            --type exe \
+            --dest target/ \
+            --java-options "--module-path $JAVAFX_SDK_PATH$JAVAFX_SDK_PATH \
+            --add-modules javafx.controls,javafx.fxml" \
+            --icon src/main/resources/tech/xueyao/tooool/img/app-win.png
+           cd $(pwd)/target/
+           echo '输出当前目录：'
+           pwd
+           echo '当前目录下的文件有：'
+           ls       
+      - name: Upload DMG to Release
+        uses: softprops/action-gh-release@v1
+        #if: startsWith(github.ref, 'refs/tags/')
+        with:
+          #tag_name: ${{ github.ref }}
+          #name: Release ${{ github.ref }}
+          tag_name: v0.1.0
+          name: Release v0.1.0
+          body: |
+            这是一个新的发布
+          draft: false
+          prerelease: false
+          files: |
+              /Users/runner/work/Tooool/Tooool/target/Tooool-1.0.dmg
+              /Users/runner/work/Tooool/Tooool/target/Tooool-1.0.exe
+
+              

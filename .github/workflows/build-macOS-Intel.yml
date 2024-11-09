@@ -1,0 +1,72 @@
+name: 打包成DMG(Intel)发布
+
+on:
+  workflow_dispatch:
+    inputs:
+      #java_version:
+      #  description: "The version of Java to use for jpackage"
+      #  required: true
+      app_version:
+        description: "应用版本，如1.0.1"
+        required: true
+      release_notes:
+        description: "Release描述"
+        required: false
+
+jobs:
+  build_and_package:
+    runs-on: macos-13 # macos13支持Intel平台，14之后默认是ARM平台，Intel平台要收费
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21.0.1'
+          distribution: 'temurin'
+
+      - name: Build with Maven
+        run: mvn clean package
+
+      - name: Download JavaFX SDK
+        run: |
+          wget https://download2.gluonhq.com/openjfx/23.0.1/openjfx-23.0.1_osx-x64_bin-sdk.zip -P /tmp/
+
+      - name: Extract JavaFX SDK
+        run: |
+          tar -zxvf /tmp/openjfx-23.0.1_osx-x64_bin-sdk.zip -C /tmp/
+          ls /tmp/
+          export JAVAFX_SDK_PATH="/tmp/javafx-sdk-23.0.1/lib"
+      - name: Package with JPackage
+        run: |
+          jpackage \
+            --input target/ \
+            --name "Tooool" \
+            --main-jar Tooool-1.0-SNAPSHOT-jar-with-dependencies.jar \
+            --main-class tech.xueyao.tooool.ToooolApplication \
+            --type dmg \
+            --dest target/ \
+            --java-options "--module-path /tmp/javafx-sdk-23.0.1/lib \
+            --add-modules javafx.controls,javafx.fxml,javafx.graphics" \
+            --icon src/main/resources/tech/xueyao/tooool/img/app-mac.icns \
+            --app-version ${{ inputs.app_version }}
+           cd $(pwd)/target/
+           echo '输出当前目录：'
+           pwd
+           echo '当前目录下的文件有：'
+           ls
+      - name: Upload DMG to Release
+        uses: softprops/action-gh-release@v1
+        #if: startsWith(github.ref, 'refs/tags/')
+        with:
+          #tag_name: ${{ github.ref }}
+          #name: Release ${{ github.ref }}
+          tag_name:  v${{ inputs.app_version }}
+          name: Release v${{ inputs.app_version }}
+          body: ${{ inputs.release_notes }}
+          draft: false
+          prerelease: false
+          files: |
+              /Users/runner/work/Tooool/Tooool/target/Tooool-${{ inputs.app_version }}.dmg

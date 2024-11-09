@@ -27,5 +27,11 @@ public class ToooolApplication extends Application {
 
     public static void main(String[] args) {
         launch();
+        // 防止窗口一闪而过退出
+        try {
+            System.in.read();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
