@@ -57,5 +57,5 @@ jobs:
           draft: false
           prerelease: false
           files: |
-              $((Get-Location).Path)/target/Tooool-1.0.exe
+              D:\a\Tooool\Tooool\target\Tooool-1.0.exe
   
