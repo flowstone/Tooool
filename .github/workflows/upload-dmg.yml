@@ -34,7 +34,7 @@ jobs:
         run: |
           jpackage \
             --input target/ \
-            --name "超级小工具" \
+            --name "Tooool" \
             --main-jar Tooool-1.0-SNAPSHOT-jar-with-dependencies.jar \
             --main-class tech.xueyao.tooool.ToooolApplication \
             --type dmg \
@@ -58,4 +58,4 @@ jobs:
           draft: false
           prerelease: false
           files: |
-              /Users/runner/work/Tooool/Tooool/target/超级小工具-1.0.dmg
+              /Users/runner/work/Tooool/Tooool/target/Tooool-1.0.dmg
