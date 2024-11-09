@@ -69,17 +69,17 @@ jobs:
           java-version: '21.0.1'
           distribution: 'temurin'
 
-      - name: Build with Maven
-        run: mvn clean package
+      #- name: Build with Maven
+      #  run: mvn clean package
 
-      - name: Download JavaFX SDK
-        run: |
-          wget https://download2.gluonhq.com/openjfx/23.0.1/openjfx-23.0.1_osx-x64_bin-sdk.zip -P /tmp/
+      #- name: Download JavaFX SDK
+      #  run: |
+      #    wget https://download2.gluonhq.com/openjfx/23.0.1/openjfx-23.0.1_osx-x64_bin-sdk.zip -P /tmp/
 
-      - name: Extract JavaFX SDK
-        run: |
-          tar -zxvf /tmp/openjfx-23.0.1_osx-x64_bin-sdk.zip -C /tmp/
-          export JAVAFX_SDK_PATH="/tmp/javafx-sdk-23.0.1/lib"
+      #- name: Extract JavaFX SDK
+      #  run: |
+      #    tar -zxvf /tmp/openjfx-23.0.1_osx-x64_bin-sdk.zip -C /tmp/
+      #    export JAVAFX_SDK_PATH="/tmp/javafx-sdk-23.0.1/lib"
 
       - name: Package with EXE
         run: |
