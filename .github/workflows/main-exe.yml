@@ -31,8 +31,7 @@ jobs:
       - name: Install Unzip Tool (if not already installed)
         run: |
           choco install unzip -y
-          refreshenv
-          
+          dir
       - name: Extract JavaFX SDK
         run: |
           unzip  javafx-sdk.zip -d javafx-sdk
