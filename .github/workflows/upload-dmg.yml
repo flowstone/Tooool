@@ -52,7 +52,7 @@ jobs:
             --add-modules javafx.controls,javafx.fxml,javafx.graphics" \
             --icon src/main/resources/tech/xueyao/tooool/img/app-mac.icns \
             --app-version ${{ inputs.app_version }}
-           cd $((Get-Location).Path)/target/
+           cd $(pwd)/target/
            echo '输出当前目录：'
            pwd
            echo '当前目录下的文件有：'
