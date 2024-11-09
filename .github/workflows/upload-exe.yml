@@ -67,4 +67,4 @@ jobs:
           draft: false
           prerelease: false
           files: |
-              $((Get-Location).Path)/target/Tooool-${{ inputs.app_version }}.exe
+              /a/Tooool/Tooool/target/Tooool-${{ inputs.app_version }}.exe
