@@ -7,7 +7,7 @@ on:
 
 jobs:
   build_and_package:
-    runs-on: macos-latest # 因为要生成.dmg格式，需要在MacOS环境下运行
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
@@ -30,7 +30,7 @@ jobs:
         run: |
           tar -zxvf /tmp/openjfx-23.0.1_osx-x64_bin-sdk.zip -C /tmp/
           export JAVAFX_SDK_PATH="/tmp/javafx-sdk-23.0.1/lib"
-      - name: Package with EXE
+      - name: Package with DMG
         run: |
           jpackage \
             --input target/ \
@@ -43,7 +43,7 @@ jobs:
             --add-modules javafx.controls,javafx.fxml" \
             --icon src/main/resources/tech/xueyao/tooool/img/app-mac.icns
             
-      - name: Package with DMG
+      - name: Package with EXE
         run: |
           jpackage \
             --input target/ \
@@ -54,7 +54,7 @@ jobs:
             --dest target/ \
             --java-options "--module-path $JAVAFX_SDK_PATH$JAVAFX_SDK_PATH \
             --add-modules javafx.controls,javafx.fxml" \
-            --icon src/main/resources/tech/xueyao/tooool/img/app-mac.icns
+            --icon src/main/resources/tech/xueyao/tooool/img/app-win.png
            cd $(pwd)/target/
            echo '输出当前目录：'
            pwd
