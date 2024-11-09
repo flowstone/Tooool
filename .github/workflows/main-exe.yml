@@ -42,20 +42,20 @@ jobs:
       - name: Package with EXE
         run: |
           jpackage --input target   --name "Tooool"  --main-jar Tooool-1.0-SNAPSHOT-jar-with-dependencies.jar   --main-class tech.xueyao.tooool.ToooolApplication --type exe  --dest target  --java-options "--module-path $env:JAVAFX_MODULE_PATH --add-modules $env:JAVAFX_ADD_MODULES " --icon src/main/resources/tech/xueyao/tooool/img/app-win.png
-            
+          cd target   
           dir
-      #- name: Upload DMG to Release
-      #  uses: softprops/action-gh-release@v1
+      - name: Upload DMG to Release
+        uses: softprops/action-gh-release@v1
         #if: startsWith(github.ref, 'refs/tags/')
-      #  with:
+        with:
           #tag_name: ${{ github.ref }}
           #name: Release ${{ github.ref }}
-      #    tag_name: v0.1.0
-      #    name: Release v0.1.0
-      #    body: |
-      #      这是一个新的发布
-      #    draft: false
-      #    prerelease: false
-      #    files: |
-      #        /Users/runner/work/Tooool/Tooool/target/Tooool-1.0.dmg
+          tag_name: v0.1.0
+          name: Release v0.1.0
+          body: |
+            这是一个新的发布
+          draft: false
+          prerelease: false
+          files: |
+              $((Get-Location).Path)/target/Tooool-1.0.exe
   
