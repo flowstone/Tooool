@@ -43,7 +43,7 @@ jobs:
             --add-modules javafx.controls,javafx.fxml" \
             --icon src/main/resources/tech/xueyao/tooool/img/app-mac.icns
       - name: Create Release
-        uses: actions/create-release@v3
+        uses: actions/create-release@v1
         with:
           tag_name: ${{ github.ref }}
           release_name: Release-${{ github.ref }}
