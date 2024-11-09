@@ -56,7 +56,5 @@ jobs:
             这是一个新的发布
           draft: false
           prerelease: false
-          run: |
-            dir
           files: |
               Tooool-1.0.exe
