@@ -34,7 +34,8 @@ jobs:
           dir
       - name: Extract JavaFX SDK
         run: |
-          unzip  javafx-sdk.zip -d javafx-sdk
+          unzip  javafx-sdk.zip
+          dir
           $env:JAVAFX_SDK_PATH = "$((Get-Location).Path)\javafx-sdk\lib"
           $env:JAVAFX_ADD_MODULES = "javafx.controls,javafx.fxml,javafx.graphics"
           
