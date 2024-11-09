@@ -54,11 +54,12 @@ jobs:
           prerelease: false
 
       - name: Upload DMG to Release
-        uses: actions/upload-release-asset@v1
+        uses: alexellis/upload-assets@0.4.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-            upload_url: ${{ steps.create_release.outputs.upload_url }}
-            asset_path: target/超级小工具-1.0.dmg
-            asset_name: 超级小工具-1.0.dmg
+            asset_paths: '["./bin/超级小工具*"]'
+            #upload_url: ${{ steps.create_release.outputs.upload_url }}
+            #asset_path: target/超级小工具-1.0.dmg
+            #asset_name: 超级小工具-1.0.dmg
             asset_content_type: application/octet-stream
