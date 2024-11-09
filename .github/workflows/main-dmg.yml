@@ -2,7 +2,8 @@ name: Build and Package Java Application
 
 on:
   push:
-   
+    #tags:
+    #  - "*"   
 
 jobs:
   build_and_package:
@@ -57,7 +58,7 @@ jobs:
           prerelease: false
           
       - name: Upload JPackage Artifacts
-        uses: actions/upload-release-asset@v3
+        uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: target # 根据实际情况调整，这里是jpackage生成的可执行文件所在目录
