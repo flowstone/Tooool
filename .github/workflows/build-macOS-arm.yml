@@ -1,4 +1,4 @@
-name: 打包成DMG(ARM芯片)发布
+name: 打包成DMG(ARM)发布
 
 on:
   workflow_dispatch:
@@ -70,4 +70,4 @@ jobs:
           draft: false
           prerelease: false
           files: |
-              /Users/runner/work/Tooool/Tooool/target/Tooool-${{ inputs.app_version }}.dmg
+              /Users/runner/work/Tooool/Tooool/target/Tooool-${{ inputs.app_version }}-arm64.dmg
