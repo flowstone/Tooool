@@ -24,12 +24,14 @@ jobs:
 
       - name: Download JavaFX SDK
         run: |
-          wget https://download2.gluonhq.com/openjfx/23.0.1/openjfx-23.0.1_osx-x64_bin-sdk.zip -P /tmp/
-
+          wget https://download2.gluonhq.com/openjfx/23.0.1/openjfx-23.0.1_osx-x64_bin-sdk.zip -P ./
+          pwd
+          ls
       - name: Extract JavaFX SDK
         run: |
-          tar -zxvf /tmp/openjfx-23.0.1_osx-x64_bin-sdk.zip -C /tmp/
+          tar -zxvf openjfx-23.0.1_osx-x64_bin-sdk.zip -C ./
           export JAVAFX_SDK_PATH="/tmp/javafx-sdk-23.0.1/lib"
+          ls
       - name: Package with DMG
         run: |
           jpackage \
