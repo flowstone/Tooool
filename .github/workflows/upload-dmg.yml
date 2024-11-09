@@ -39,7 +39,6 @@ jobs:
           tar -zxvf /tmp/openjfx-23.0.1_osx-x64_bin-sdk.zip -C /tmp/
           ls /tmp/
           export JAVAFX_SDK_PATH="/tmp/javafx-sdk-23.0.1/lib"
-          export JAVAFX_ADD_MODULES = "javafx.controls,javafx.fxml,javafx.graphics" 
       - name: Package with JPackage
         run: |
           jpackage \
@@ -50,7 +49,7 @@ jobs:
             --type dmg \
             --dest target/ \
             --java-options "--module-path $AVAFX_SDK_PATH \
-            --add-modules $JAVAFX_ADD_MODULES" \
+            --add-modules javafx.controls,javafx.fxml,javafx.graphics" \
             --icon src/main/resources/tech/xueyao/tooool/img/app-mac.icns \
             --app-version ${{ inputs.app_version }}
            cd $((Get-Location).Path)/target/
