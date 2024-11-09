@@ -57,4 +57,4 @@ jobs:
           draft: false
           prerelease: false
           files: |
-              Tooool-1.0.exe
+              /a/Tooool/Tooool/target/Tooool-1.0.exe
