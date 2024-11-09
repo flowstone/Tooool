@@ -8,7 +8,7 @@ on:
       #  required: true
       release_version:
         description: "Release版本号，如0.1.0"
-        required: true
+        required: false
       release_notes:
         description: "Release描述"
         required: false
@@ -61,8 +61,8 @@ jobs:
         with:
           #tag_name: ${{ github.ref }}
           #name: Release ${{ github.ref }}
-          tag_name:  ${{ inputs.release_version }}
-          name: Release v${{ inputs.release_version }}
+          tag_name:  v0.1.2
+          name: Release v.0.1.0
           body: ${{ inputs.release_notes }}
           draft: false
           prerelease: false
