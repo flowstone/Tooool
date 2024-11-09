@@ -6,9 +6,9 @@ on:
       #java_version:
       #  description: "The version of Java to use for jpackage"
       #  required: true
-      release_version:
-        description: "Release版本号，如0.1.0"
-        required: false
+      app_version:
+        description: "应用版本，如1.0.1"
+        required: true
       release_notes:
         description: "Release描述"
         required: false
@@ -42,7 +42,7 @@ jobs:
         run: |
           jpackage \
             --input target/ \
-            --name "Tooool" \
+            --name "超级小工具" \
             --main-jar Tooool-1.0-SNAPSHOT-jar-with-dependencies.jar \
             --main-class tech.xueyao.tooool.ToooolApplication \
             --type dmg \
@@ -50,6 +50,7 @@ jobs:
             --java-options "--module-path /tmp/javafx-sdk-23.0.1/lib \
             --add-modules javafx.controls,javafx.fxml" \
             --icon src/main/resources/tech/xueyao/tooool/img/app-mac.icns
+            --app-version ${{ inputs.app_version }}
            cd $(pwd)/target/
            echo '输出当前目录：'
            pwd
@@ -57,14 +58,14 @@ jobs:
            ls
       - name: Upload DMG to Release
         uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/tags/')
+        #if: startsWith(github.ref, 'refs/tags/')
         with:
           #tag_name: ${{ github.ref }}
           #name: Release ${{ github.ref }}
-          tag_name:  v0.1.2
-          name: Release v.0.1.0
+          tag_name:  v${{ inputs.app_version }}
+          name: Release v${{ inputs.app_version }}
           body: ${{ inputs.release_notes }}
           draft: false
           prerelease: false
           files: |
-              /Users/runner/work/Tooool/Tooool/target/Tooool-1.0.dmg
+              /Users/runner/work/Tooool/Tooool/target/超级小工具-${{ inputs.app_version }}.dmg
