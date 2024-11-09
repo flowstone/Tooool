@@ -24,14 +24,14 @@ jobs:
 
       - name: Download JavaFX SDK
         run: |
-          wget https://download2.gluonhq.com/openjfx/23.0.1/openjfx-23.0.1_osx-x64_bin-sdk.zip -P ./
+          Invoke-WebRequest -Uri https://download2.gluonhq.com/openjfx/23.0.1/openjfx-23.0.1_osx-x64_bin-sdk.zip -OutFile javafx-sdk.zip
+          Expand-Archive -Path javafx-sdk.zip -DestinationPath javafx-sdk
           dir
           
 
       - name: Extract JavaFX SDK
         run: |
-          unzip openjfx-23.0.1_osx-x64_bin-sdk.zip -d javafx-sdk-23.0.1
-          $env:JAVAFX_SDK_PATH = "$((Get-Location).Path)\javafx-sdk-23.0.1\lib"
+          $env:JAVAFX_SDK_PATH = "$((Get-Location).Path)\javafx-sdk\lib"
           $env:JAVAFX_ADD_MODULES = "javafx.controls,javafx.fxml,javafx.graphics"
           
       - name: Package with EXE
