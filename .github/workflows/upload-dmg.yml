@@ -2,8 +2,8 @@ name: 打包成IMG并发版
 
 on:
   push:
-    tags:
-      - "*"   
+    #tags:
+    #  - "*"   
 
 jobs:
   build_and_package:
@@ -29,7 +29,7 @@ jobs:
       - name: Extract JavaFX SDK
         run: |
           tar -zxvf /tmp/openjfx-23.0.1_osx-x64_bin-sdk.zip -C /tmp/
-          export JAVAFX_SDK_PATH="/tmp/javafx-sdk-23.0.1/lib"
+          ls /tmp/
       - name: Package with JPackage
         run: |
           jpackage \
@@ -39,7 +39,7 @@ jobs:
             --main-class tech.xueyao.tooool.ToooolApplication \
             --type dmg \
             --dest target/ \
-            --java-options "--module-path $JAVAFX_SDK_PATH \
+            --java-options "--module-path /tmp/javafx-sdk-23.0.1/lib \
             --add-modules javafx.controls,javafx.fxml" \
             --icon src/main/resources/tech/xueyao/tooool/img/app-mac.icns
            cd $(pwd)/target/
