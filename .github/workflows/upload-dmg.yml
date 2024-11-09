@@ -15,7 +15,7 @@ on:
 
 jobs:
   build_and_package:
-    runs-on: macos-latest # 因为要生成.dmg格式，需要在MacOS环境下运行
+    runs-on: macos-15-large # 因为要生成.dmg格式，需要在MacOS环境下运行
 
     steps:
       - name: Checkout Repository
