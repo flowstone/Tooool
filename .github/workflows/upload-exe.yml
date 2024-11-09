@@ -46,9 +46,7 @@ jobs:
           dir
           $env:JAVAFX_SDK_PATH = "$((Get-Location).Path)\javafx-sdk\lib"
           $env:JAVAFX_ADD_MODULES = "javafx.controls,javafx.fxml,javafx.graphics"
-          echo ${{env:JAVAFX_SDK_PATH}}
           echo $env:JAVAFX_SDK_PATH
-          echo ${{env:JAVAFX_ADD_MODULES}}
           echo $env:JAVAFX_ADD_MODULES
 
       - name: Package with EXE
