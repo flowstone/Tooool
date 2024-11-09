@@ -59,7 +59,7 @@ jobs:
           draft: false
           prerelease: false
           files: |
-              /Users/runner/work/Tooool/Tooool/target超级小工具-1.0.dmg
+              /Users/runner/work/Tooool/Tooool/target/超级小工具-1.0.dmg
      # - name: Upload DMG to Release
      #   uses: alexellis/upload-assets@0.4.1
       #  env:
