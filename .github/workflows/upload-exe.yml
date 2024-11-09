@@ -41,7 +41,7 @@ jobs:
           
       - name: Package with EXE
         run: |
-          jpackage --input target   --name "Tooool"  --main-jar Tooool-1.0-SNAPSHOT-jar-with-dependencies.jar   --main-class tech.xueyao.tooool.ToooolApplication --type exe  --dest target  --java-options "--module-path $env:JAVAFX_MODULE_PATH --add-modules $env:JAVAFX_ADD_MODULES " --icon src/main/resources/tech/xueyao/tooool/img/app-win.ico
+          jpackage --input target   --name "超级小工具"  --main-jar Tooool-1.0-SNAPSHOT-jar-with-dependencies.jar   --main-class tech.xueyao.tooool.ToooolApplication --type exe  --dest target  --java-options "--module-path $env:JAVAFX_MODULE_PATH --add-modules $env:JAVAFX_ADD_MODULES " --icon src/main/resources/tech/xueyao/tooool/img/app-win.ico
           cd target   
           dir
       - name: Upload EXE to Release
@@ -57,4 +57,4 @@ jobs:
           draft: false
           prerelease: false
           files: |
-              /a/Tooool/Tooool/target/Tooool-1.0.exe
+              /a/Tooool/Tooool/target/超级小工具-1.0.exe
