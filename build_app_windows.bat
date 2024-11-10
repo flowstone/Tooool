@@ -37,7 +37,7 @@ echo detecting required modules
   --multi-release %JAVA_VERSION% ^
   --ignore-missing-deps ^
   --class-path "target\installer\input\libs\*" ^
-  --print-module-deps target\classes\tech\xueyao\tooool\App.class > temp.txt
+  --print-module-deps target\classes\tech\xueyao\tooool\ToooolApplication.class > temp.txt
 
 set /p detected_modules=<temp.txt
 
@@ -84,7 +84,7 @@ call "%JAVA_HOME%\bin\jpackage" ^
   --dest target/installer ^
   --input target/installer/input/libs ^
   --name Tooool ^
-  --main-class tech.xueyao.tooool.App ^
+  --main-class tech.xueyao.tooool.ToooolApplication ^
   --main-jar %MAIN_JAR% ^
   --java-options -Xmx2048m ^
   --runtime-image target/java-runtime ^

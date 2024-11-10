@@ -44,7 +44,7 @@ detected_modules=`$JAVA_HOME/bin/jdeps \
   --ignore-missing-deps \
   --print-module-deps \
   --class-path "target/installer/input/libs/*" \
-    target/classes/tech/xueyao/tooool/App.class`
+    target/classes/tech/xueyao/tooool/ToooolApplication.class`
 echo "detected modules: ${detected_modules}"
 
 
@@ -89,7 +89,7 @@ $JAVA_HOME/bin/jpackage \
 --dest target/installer \
 --input target/installer/input/libs \
 --name Tooool \
---main-class tech.xueyao.tooool.App \
+--main-class tech.xueyao.tooool.ToooolApplication \
 --main-jar ${MAIN_JAR} \
 --java-options -Xmx2048m \
 --runtime-image target/java-runtime \
