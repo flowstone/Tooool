@@ -15,10 +15,11 @@ MAIN_JAR="Tooool-$PROJECT_VERSION.jar"
 # Set desired installer type: "dmg", "pkg".
 INSTALLER_TYPE=dmg
 
-echo "java home: $JAVA_HOME"
-echo "project version: $PROJECT_VERSION"
-echo "app version: $APP_VERSION"
-echo "main JAR file: $MAIN_JAR"
+echo "Java Home: $JAVA_HOME"
+echo "Project Version: $PROJECT_VERSION"
+echo "App Version: $APP_VERSION"
+echo "Main JAR File: $MAIN_JAR"
+echo "Java FX Home: $JAVA_FX_HOME"
 
 # ------ SETUP DIRECTORIES AND FILES ----------------------------------------
 # Remove previously generated java runtime and installers. Copy all required
@@ -74,7 +75,9 @@ $JAVA_HOME/bin/jlink \
   --strip-native-commands \
   --no-header-files \
   --no-man-pages  \
+  --compress zip-6  \
   --strip-debug \
+  --module-path "${JAVA_FX_HOME}" \
   --add-modules "${detected_modules}${manual_modules}" \
   --include-locales=en,de \
   --output target/java-runtime
