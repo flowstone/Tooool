@@ -25,12 +25,12 @@ jobs:
         run: mvn clean install
 
       - name: Upload DMG
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: DMG file
           path: target/installer/*.dmg
       - name: Upload PKG
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: PKG file
           path: target/installer/*.pkg
